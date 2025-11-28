@@ -1,0 +1,144 @@
+﻿@page "/signin"
+
+<PageTitle>Connexion - EcoFoodSaver</PageTitle>
+
+<div class="auth-page">
+    <div class="auth-container">
+        <!-- Left Side - Image & Info -->
+        <div class="auth-left">
+            <div class="auth-overlay">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🌱</span>
+                    <span class="logo-text">EcoFoodSaver</span>
+                </a>
+                <div class="auth-info">
+                    <h2>Bienvenue !</h2>
+                    <p>Connectez-vous pour continuer à lutter contre le gaspillage alimentaire</p>
+                    <div class="info-features">
+                        <div class="info-item">✓ Accédez à vos annonces</div>
+                        <div class="info-item">✓ Gérez vos réservations</div>
+                        <div class="info-item">✓ Chattez avec la communauté</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Form -->
+        <div class="auth-right">
+            <div class="auth-form-container">
+                <h1>Connexion</h1>
+                <p class="auth-subtitle">Entrez vos identifiants pour accéder à votre compte</p>
+
+                <form class="auth-form" @onsubmit="HandleSignIn" @onsubmit:preventDefault>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📧</span>
+                            <input type="email"
+                                   id="email"
+                                   @bind="signInForm.Email"
+                                   required
+                                   placeholder="votre@email.fr" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="@(showPassword ? "text" : "password")"
+                                   id="password"
+                                   @bind="signInForm.Password"
+                                   required
+                                   placeholder="••••••••" />
+                            <button type="button"
+                                    class="toggle-password"
+                                    @onclick="TogglePassword">
+                                @(showPassword ? "👁️" : "👁️‍🗨️")
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" @bind="signInForm.RememberMe" />
+                            <span>Se souvenir de moi</span>
+                        </label>
+                        <a href="#" class="forgot-link">Mot de passe oublié ?</a>
+                    </div>
+
+                    @if (showError)
+                    {
+                        <div class="error-message">
+                            ⚠️ Email ou mot de passe incorrect
+                        </div>
+                    }
+
+                    <button type="submit" class="btn-primary btn-full" disabled="@isSubmitting">
+                        @if (isSubmitting)
+                        {
+                            <span>Connexion en cours...</span>
+                        }
+                        else
+                        {
+                            <span>Se connecter</span>
+                        }
+                    </button>
+
+                    <div class="divider">
+                        <span>OU</span>
+                    </div>
+
+                
+                    <div class="auth-footer">
+                        Pas encore de compte ?
+                        <a href="/signup" class="link-primary">Créer un compte</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private bool showPassword = false;
+    private bool isSubmitting = false;
+    private bool showError = false;
+
+    private SignInFormModel signInForm = new SignInFormModel();
+
+    private void TogglePassword()
+    {
+        showPassword = !showPassword;
+    }
+
+    private async Task HandleSignIn()
+    {
+        isSubmitting = true;
+        showError = false;
+
+        // Simulation de l'authentification
+        await Task.Delay(1500);
+
+        // Logique de validation (à remplacer par votre API)
+        if (signInForm.Email.Contains("@") && signInForm.Password.Length >= 6)
+        {
+            // Succès - Rediriger vers la page principale
+            // NavigationManager.NavigateTo("/");
+            Console.WriteLine("Connexion réussie !");
+        }
+        else
+        {
+            showError = true;
+        }
+
+        isSubmitting = false;
+    }
+
+    public class SignInFormModel
+    {
+        public string Email { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+        public bool RememberMe { get; set; } = false;
+    }
+}

@@ -1,0 +1,281 @@
+﻿@page "/signup"
+
+<PageTitle>Inscription - EcoFoodSaver</PageTitle>
+
+<div class="auth-page">
+    <div class="auth-container">
+        <!-- Left Side - Image & Info -->
+        <div class="auth-left">
+            <div class="auth-overlay">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🌱</span>
+                    <span class="logo-text">EcoFoodSaver</span>
+                </a>
+                <div class="auth-info">
+                    <h2>Rejoignez-nous !</h2>
+                    <p>Créez votre compte et commencez à faire la différence dès aujourd'hui</p>
+                    <div class="info-features">
+                        <div class="info-item">✓ 100% gratuit</div>
+                        <div class="info-item">✓ Inscription en 2 minutes</div>
+                        <div class="info-item">✓ Communauté bienveillante</div>
+                        <div class="info-item">✓ Impact écologique immédiat</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Form -->
+        <div class="auth-right">
+            <div class="auth-form-container">
+                <h1>Créer un compte</h1>
+                <p class="auth-subtitle">Rejoignez des milliers d'utilisateurs engagés</p>
+
+                <form class="auth-form" @onsubmit="HandleSignUp" @onsubmit:preventDefault>
+                    <div class="form-group">
+                        <label for="fullname">Nom complet *</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">👤</span>
+                            <input type="text"
+                                   id="fullname"
+                                   @bind="signUpForm.FullName"
+                                   required
+                                   placeholder="Jean Dupont" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📧</span>
+                            <input type="email"
+                                   id="email"
+                                   @bind="signUpForm.Email"
+                                   required
+                                   placeholder="votre@email.fr" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">Ville *</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📍</span>
+                            <input type="text"
+                                   id="city"
+                                   @bind="signUpForm.City"
+                                   required
+                                   placeholder="Paris, Lyon, Marseille..." />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Mot de passe *</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="@(showPassword ? "text" : "password")"
+                                   id="password"
+                                   @bind="signUpForm.Password"
+                                   required
+                                   minlength="6"
+                                   placeholder="Minimum 6 caractères" />
+                            <button type="button"
+                                    class="toggle-password"
+                                    @onclick="TogglePassword">
+                                @(showPassword ? "👁️" : "👁️‍🗨️")
+                            </button>
+                        </div>
+                        <div class="password-strength">
+                            <div class="strength-bar @GetPasswordStrengthClass()"></div>
+                        </div>
+                        <span class="password-hint">@GetPasswordStrengthText()</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm-password">Confirmer le mot de passe *</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="@(showConfirmPassword ? "text" : "password")"
+                                   id="confirm-password"
+                                   @bind="signUpForm.ConfirmPassword"
+                                   required
+                                   placeholder="Retapez votre mot de passe" />
+                            <button type="button"
+                                    class="toggle-password"
+                                    @onclick="ToggleConfirmPassword">
+                                @(showConfirmPassword ? "👁️" : "👁️‍🗨️")
+                            </button>
+                        </div>
+                    </div>
+
+       
+                    @if (showError)
+                    {
+                        <div class="error-message">
+                            ⚠️ @errorMessage
+                        </div>
+                    }
+
+                    @if (showSuccess)
+                    {
+                        <div class="success-message">
+                            ✓ Compte créé avec succès ! Redirection...
+                        </div>
+                    }
+
+                    <button type="submit" class="btn-primary btn-full" disabled="@isSubmitting">
+                        @if (isSubmitting)
+                        {
+                            <span>Création en cours...</span>
+                        }
+                        else
+                        {
+                            <span>Créer mon compte</span>
+                        }
+                    </button>
+
+                    <div class="divider">
+                        <span>OU</span>
+                    </div>
+
+
+                    <div class="auth-footer">
+                        Vous avez déjà un compte ?
+                        <a href="/signin" class="link-primary">Se connecter</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private bool showPassword = false;
+    private bool showConfirmPassword = false;
+    private bool isSubmitting = false;
+    private bool showError = false;
+    private bool showSuccess = false;
+    private string errorMessage = string.Empty;
+
+    private SignUpFormModel signUpForm = new SignUpFormModel();
+
+    private void TogglePassword()
+    {
+        showPassword = !showPassword;
+    }
+
+    private void ToggleConfirmPassword()
+    {
+        showConfirmPassword = !showConfirmPassword;
+    }
+
+    private string GetPasswordStrengthClass()
+    {
+        if (string.IsNullOrEmpty(signUpForm.Password)) return "";
+
+        int length = signUpForm.Password.Length;
+        bool hasNumber = signUpForm.Password.Any(char.IsDigit);
+        bool hasUpper = signUpForm.Password.Any(char.IsUpper);
+        bool hasSpecial = signUpForm.Password.Any(c => !char.IsLetterOrDigit(c));
+
+        if (length >= 10 && hasNumber && hasUpper && hasSpecial)
+            return "strength-strong";
+        else if (length >= 6 && (hasNumber || hasUpper))
+            return "strength-medium";
+        else
+            return "strength-weak";
+    }
+
+    private string GetPasswordStrengthText()
+    {
+        if (string.IsNullOrEmpty(signUpForm.Password)) return "Minimum 6 caractères";
+
+        var strength = GetPasswordStrengthClass();
+        return strength switch
+        {
+            "strength-strong" => "Mot de passe fort ✓",
+            "strength-medium" => "Mot de passe moyen",
+            "strength-weak" => "Mot de passe faible",
+            _ => ""
+        };
+    }
+
+    private async Task HandleSignUp()
+    {
+        isSubmitting = true;
+        showError = false;
+        showSuccess = false;
+        errorMessage = string.Empty;
+
+        // Validation
+        if (string.IsNullOrWhiteSpace(signUpForm.FullName))
+        {
+            errorMessage = "Le nom complet est requis";
+            showError = true;
+            isSubmitting = false;
+            return;
+        }
+
+        if (!signUpForm.Email.Contains("@"))
+        {
+            errorMessage = "Email invalide";
+            showError = true;
+            isSubmitting = false;
+            return;
+        }
+
+        if (signUpForm.Password.Length < 6)
+        {
+            errorMessage = "Le mot de passe doit contenir au moins 6 caractères";
+            showError = true;
+            isSubmitting = false;
+            return;
+        }
+
+        if (signUpForm.Password != signUpForm.ConfirmPassword)
+        {
+            errorMessage = "Les mots de passe ne correspondent pas";
+            showError = true;
+            isSubmitting = false;
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(signUpForm.City))
+        {
+            errorMessage = "La ville est requise";
+            showError = true;
+            isSubmitting = false;
+            return;
+        }
+
+        if (!signUpForm.AcceptTerms)
+        {
+            errorMessage = "Vous devez accepter les conditions d'utilisation";
+            showError = true;
+            isSubmitting = false;
+            return;
+        }
+
+        // Simulation de l'inscription
+        await Task.Delay(1500);
+
+        // Succès
+        showSuccess = true;
+        Console.WriteLine($"Inscription réussie pour {signUpForm.FullName} ({signUpForm.Email}) à {signUpForm.City}");
+
+        // Redirection après 2 secondes
+        await Task.Delay(2000);
+        // NavigationManager.NavigateTo("/");
+
+        isSubmitting = false;
+    }
+
+    public class SignUpFormModel
+    {
+        public string FullName { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string City { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+        public string ConfirmPassword { get; set; } = string.Empty;
+        public bool AcceptTerms { get; set; } = false;
+    }
+}

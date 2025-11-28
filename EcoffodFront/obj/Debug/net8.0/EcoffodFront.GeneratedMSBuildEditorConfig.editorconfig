@@ -1,0 +1,101 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = EcoffodFront
+build_property.RootNamespace = EcoffodFront
+build_property.ProjectDir = C:\Users\LENOVO\Desktop\3emeGLProjects\3emeGLProjects\EcoFoodSolution\EcoffodFront\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\LENOVO\Desktop\3emeGLProjects\3emeGLProjects\EcoFoodSolution\EcoffodFront
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/Layout/LoadingSpinner.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XExvYWRpbmdTcGlubmVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/Pages/Weather.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/Layout/Footer.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XEZvb3Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-g6wnxmbkcu
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-o6wdhyv0qo
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/Layout/Modal.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1vZGFsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-cs4ganri23
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/Layout/Navbar.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdmJhci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-wezs7eg0ke
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-68inufq69c
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/Pages/Admin/Dashbord.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGFzaGJvcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-stnotujekh
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/Pages/Client/AddProduct.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50XEFkZFByb2R1Y3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-93qokukoun
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/Pages/Client/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50XEhvbWUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-hzb13ol4kn
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/Pages/Client/MyOrders.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50XE15T3JkZXJzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-qw8umzpyjk
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/Pages/Client/ProductDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50XFByb2R1Y3REZXRhaWxzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-5rvnz0d75s
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/Pages/Landing.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFuZGluZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-oq1ucw7a9y
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/Pages/SignIn.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnbkluLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-jhy1wp0rs7
+
+[C:/Users/LENOVO/Desktop/3emeGLProjects/3emeGLProjects/EcoFoodSolution/EcoffodFront/Pages/SignUp.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnblVwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-8egud309r6
